@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Jogos Favoritos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="login-container">
+        <h2>Login</h2>
+
+        <input type="text" id="usuario" placeholder="Usuário">
+        <input type="password" id="senha" placeholder="Senha">
+
+        <button onclick="fazerLogin()">Entrar</button>
+
+        <p id="erro-login"></p>
+    </div>
+
+    <div id="app-container" style="display:none;">
+        <h1>Meus Jogos Favoritos</h1>
+
+        <input type="text" id="novoJogo" placeholder="Digite um jogo">
+        <button onclick="adicionarFim()">Adicionar no Final</button>
+        <button onclick="adicionarInicio()">Adicionar no Início</button>
+
+        <p id="erro-item"></p>
+
+        <ul id="listaJogos"></ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

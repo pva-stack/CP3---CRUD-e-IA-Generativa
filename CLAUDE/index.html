@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>CineLog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+<!-- LOGIN PAGE -->
+<div class="page active" id="page-login">
+  <div class="login-visual">
+    <div class="poster-grid" id="poster-grid"></div>
+    <div class="login-brand">
+      <span class="reel">🎞</span>
+      <h1>Cine<em>Log</em></h1>
+      <p>Seu diário de filmes pessoal</p>
+    </div>
+  </div>
+
+  <div class="login-panel">
+    <div class="login-panel-title">Bem-vindo de volta</div>
+    <div class="login-panel-sub">Entre para acessar sua lista de filmes</div>
+    <div class="msg" id="msg-login"></div>
+
+    <div class="field">
+      <label for="input-user">Usuário</label>
+      <div class="input-wrap">
+        <span class="input-icon">👤</span>
+        <input type="text" id="input-user" placeholder="seu usuário" autocomplete="username"/>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="input-pass">Senha</label>
+      <div class="input-wrap">
+        <span class="input-icon">🔑</span>
+        <input type="password" id="input-pass" placeholder="sua senha" autocomplete="current-password"/>
+      </div>
+    </div>
+
+    <div class="field">
+      <button class="btn btn-primary" id="btn-login">Entrar no CineLog →</button>
+    </div>
+
+    <div style="text-align:center; margin-top:1.5rem; font-size:0.75rem; color:var(--text-muted);">
+      Credenciais: <code style="background:var(--surface2);padding:.15rem .4rem;border-radius:4px;">aluno</code>
+      / <code style="background:var(--surface2);padding:.15rem .4rem;border-radius:4px;">fiap2025</code>
+    </div>
+  </div>
+</div>
+
+<!-- APP PAGE -->
+<div class="page" id="page-app">
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="wordmark">CineLog</div>
+      <div class="tagline">📽 Diário de filmes</div>
+    </div>
+    <div class="sidebar-stats">
+      <div class="stat-row">
+        <span class="stat-label">🎬 Total de filmes</span>
+        <span class="stat-value amber" id="stat-total">0</span>
+      </div>
+      <div class="stat-row"><span class="stat-label">⭐ Primeiro da lista</span></div>
+      <div id="stat-first" style="font-size:0.8rem;color:var(--text-dim);margin-top:-0.4rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">—</div>
+      <div class="stat-row" style="margin-top:0.2rem;"><span class="stat-label">🆕 Último adicionado</span></div>
+      <div id="stat-last" style="font-size:0.8rem;color:var(--text-dim);margin-top:-0.4rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">—</div>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-label">
+        <span>Progresso</span>
+        <span id="progress-pct">0%</span>
+      </div>
+      <div class="progress-bar-track">
+        <div class="progress-bar-fill" id="progress-fill" style="width:0%"></div>
+      </div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Sugestões de gênero</div>
+      <div class="genre-pills">
+        <span class="genre-pill">Ação</span>
+        <span class="genre-pill">Drama</span>
+        <span class="genre-pill">Sci-Fi</span>
+        <span class="genre-pill">Terror</span>
+        <span class="genre-pill">Comédia</span>
+        <span class="genre-pill">Thriller</span>
+        <span class="genre-pill">Animação</span>
+        <span class="genre-pill">Romance</span>
+      </div>
+    </div>
+    <div class="sidebar-footer">
+      <button class="btn btn-ghost" id="btn-logout" style="width:100%;justify-content:center;font-size:0.8rem;">← Sair da conta</button>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="main-header">
+      <div class="main-header-left">
+        <div>
+          <div class="header-eyebrow">CineLog</div>
+          <div class="header-title">Minha lista de filmes</div>
+        </div>
+        <div class="header-divider"></div>
+        <div style="font-size:0.78rem;color:var(--text-muted);">
+          Logado como <strong style="color:var(--text-dim)">aluno</strong>
+        </div>
+      </div>
+      <button class="btn btn-ghost" id="btn-logout-header" style="font-size:0.78rem;padding:.5rem .9rem;">Sair →</button>
+    </header>
+
+    <div class="main-body">
+      <div class="add-card">
+        <div class="add-card-title">🎞 Adicionar novo filme</div>
+        <div class="add-input-row">
+          <div class="add-input-wrap">
+            <span class="add-icon">🎬</span>
+            <input type="text" id="input-new-movie" placeholder="Ex: Clube da Luta (1999)…"/>
+          </div>
+          <div class="add-btns">
+            <button class="btn btn-amber" id="btn-add-start">↑ Início</button>
+            <button class="btn btn-success-sm" id="btn-add-end">↓ Final</button>
+          </div>
+        </div>
+        <div class="msg" id="msg-add"></div>
+      </div>
+
+      <div class="list-header">
+        <div class="list-title">Filmes assistidos</div>
+        <div class="list-count-badge" id="list-count-badge">0 filmes</div>
+      </div>
+
+      <ul id="movie-list"></ul>
+
+      <div class="empty-state" id="empty-state">
+        <span class="empty-icon">🍿</span>
+        <h3>Nenhum filme ainda</h3>
+        <p>Adicione o primeiro título usando o campo acima.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast-container" id="toast-container"></div>
+<script src="script.js"></script>
+</body>
+</html>

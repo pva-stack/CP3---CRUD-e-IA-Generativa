@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Ideias de Projetos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="tela-login" class="container">
+        <h2>Login do Sistema</h2>
+        <p class="subtitulo">Acesse seu gerenciador de projetos</p>
+        
+        <div id="erro-login" class="mensagem-erro oculto"></div>
+        
+        <form id="form-login" onsubmit="event.preventDefault(); executarLogin();">
+            <div class="campo">
+                <label for="usuario">Usuário:</label>
+                <input type="text" id="usuario" placeholder="Digite seu usuário">
+            </div>
+            <div class="campo">
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" placeholder="Digite sua senha">
+            </div>
+            <button type="submit" class="btn-principal">Entrar</button>
+        </form>
+    </div>
+
+    <div id="tela-sistema" class="container oculto">
+        <div class="cabecalho-sistema">
+            <h2>Suas Ideias de Projetos</h2>
+            <button onclick="executarLogout()" class="btn-logout">Sair</button>
+        </div>
+
+        <div id="erro-crud" class="mensagem-erro oculto"></div>
+
+        <div class="formulario-item">
+            <input type="text" id="novo-item" placeholder="Digite o nome da nova ideia...">
+            <div class="botoes-acoes">
+                <button onclick="adicionarNoInicio()" class="btn-secundario">Adicionar no Início</button>
+                <button onclick="adicionarNoFinal()" class="btn-principal">Adicionar no Final</button>
+            </div>
+        </div>
+
+        <ul id="lista-itens">
+            </ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
